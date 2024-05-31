@@ -2,7 +2,7 @@
 
 // Configurações do Firebase
 var firebaseConfig = {
-    apiKey: "${{ secrets.FIREBASE_API_KEY }}",
+    apiKey: FIREBASE_API_KEY,
     authDomain: "gym-website-3617b.firebaseapp.com",
     projectId: "gym-website-3617b",
     storageBucket: "gym-website-3617b.appspot.com",
