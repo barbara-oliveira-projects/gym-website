@@ -2,7 +2,7 @@
 
 // Configurações do Firebase
 var firebaseConfig = {
-    apiKey: FIREBASE_API_KEY,
+    apiKey: "AIzaSyC0K5zeAuuoCDzQ33H1F_zkCEaQTmOwNOg", // TODO Use env vars to make this value a secret
     authDomain: "gym-website-3617b.firebaseapp.com",
     projectId: "gym-website-3617b",
     storageBucket: "gym-website-3617b.appspot.com",

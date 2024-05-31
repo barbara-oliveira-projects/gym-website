@@ -20,9 +20,6 @@ jobs:
           # Substitua os valores das variáveis de ambiente no arquivo firebase-config.js
           sed -i "s|FIREBASE_API_KEY|$FIREBASE_API_KEY|g" ./scripts/firebase-config.js
 
-      - name: Log Firebase Config
-        run: cat ./scripts/firebase-config.js
-
       - name: Set up GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
