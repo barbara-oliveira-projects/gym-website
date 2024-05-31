@@ -18,8 +18,8 @@ jobs:
           echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
           
           # Substitua os valores das variáveis de ambiente no arquivo firebase-config.js
-          sed -i "s/\${{ secrets.FIREBASE_API_KEY }}/$FIREBASE_API_KEY/g" ./scripts/firebase-config.js
-          
+          sed -i "s|YOUR_FIREBASE_API_KEY|${{ secrets.FIREBASE_API_KEY }}|g" ./scripts/firebase-config.js
+
       - name: Log Firebase Config
         run: cat ./scripts/firebase-config.js
 
