@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia XYZ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="30" height="30" alt="Logo">
+            Academia XYZ
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Bem-vindo à Academia XYZ!</h1>
+            <p class="lead">Oferecemos os melhores serviços para você ficar em forma.</p>
+            <a class="btn btn-primary btn-lg" href="#services" role="button">Saiba mais</a>
+        </div>
+
+        <section id="services" class="mt-5">
+            <h2>Serviços</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Musculação</h3>
+                    <p>Equipamentos de última geração para você treinar.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Aulas de Grupo</h3>
+                    <p>Aulas de diversas modalidades para todos os gostos.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Personal Trainer</h3>
+                    <p>Profissionais qualificados para orientar seu treino.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mt-5">
+            <h2>Sobre</h2>
+            <p>Somos uma academia comprometida com seu bem-estar e saúde. Nossa missão é proporcionar um ambiente acolhedor e motivador para todos os nossos clientes.</p>
+        </section>
+
+        <section id="contact" class="mt-5 mb-5">
+            <h2>Contato</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Seu email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Sua mensagem"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Academia XYZ. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
