@@ -14,4 +14,4 @@ var firebaseConfig = {
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 var auth = firebase.auth();
-var db = firebase.firestore();
+var database = firebase.database();

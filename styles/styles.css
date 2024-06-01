@@ -10,3 +10,24 @@ body {
 section {
     padding: 2rem 0;
 }
+
+.custom-register-btn {
+    /* Seu estilo atual */
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    
+    /* Adicione estas propriedades para centralizar o texto */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.custom-register-btn:hover {
+    color: #ffffff; /* Cor do texto ao passar o mouse */
+    background-color: transparent; /* Cor de fundo transparente ao passar o mouse */
+}
