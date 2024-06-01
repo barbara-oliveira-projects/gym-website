@@ -15,3 +15,4 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var auth = firebase.auth();
 var database = firebase.database();
+var storage = firebase.storage();

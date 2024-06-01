@@ -31,3 +31,16 @@ section {
     color: #ffffff; /* Cor do texto ao passar o mouse */
     background-color: transparent; /* Cor de fundo transparente ao passar o mouse */
 }
+
+.profile-image-container {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%; /* Torna a imagem um círculo */
+    margin: auto; /* Centraliza horizontalmente */
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: auto;
+}
