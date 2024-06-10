@@ -1,27 +1,35 @@
-name: Deploy to GitHub Pages
+name: Deploy React App to S3
 
 on:
   push:
     branches:
-      - main
+      - main  # ou a branch que você deseja monitorar
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up environment variables for Firebase Config
-        run: |
-          FIREBASE_API_KEY="${{ secrets.FIREBASE_API_KEY }}"
-
-          # Substitua os valores das variáveis de ambiente no arquivo firebase-config.js
-          sed -i "s|FIREBASE_API_KEY|$FIREBASE_API_KEY|g" ./scripts/firebase-config.js
-
-      - name: Set up GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./gym-website
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          npm install -g aws-cli
+          aws s3 sync build/ s3://$AWS_S3_BUCKET --region $AWS_REGION --delete
