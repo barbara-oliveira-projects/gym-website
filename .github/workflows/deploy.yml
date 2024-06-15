@@ -23,8 +23,8 @@ jobs:
 
       - name: Build project
         env:
-          COGNITO_USER_POOL_ID: ${{ secrets.COGNITO_USER_POOL_ID }}
-          COGNITO_USER_POOL_CLIENT_ID: ${{ secrets.COGNITO_USER_POOL_CLIENT_ID }}
+          REACT_APP_COGNITO_USER_POOL_ID: ${{ secrets.REACT_APP_COGNITO_USER_POOL_ID }}
+          REACT_APP_COGNITO_USER_POOL_CLIENT_ID: ${{ secrets.REACT_APP_COGNITO_USER_POOL_CLIENT_ID }}
         run: npm run build
 
       - name: Deploy to S3
