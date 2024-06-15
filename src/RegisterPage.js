@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import userPool from './aws';
+import './RegisterPage.css'; // Importe o arquivo de estilos CSS
 
 const RegisterPage = () => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -49,48 +50,48 @@ const RegisterPage = () => {
   };
 
   return (
-    <Container>
-      <h2>Registro</h2>
-      {!isConfirming ? (
-        <Form onSubmit={handleRegister}>
-          <Form.Group controlId="formBasicUsername">
-            <Form.Label>Nome</Form.Label>
-            <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
-          </Form.Group>
+    <div className="register-container"> {/* Container principal com fundo fosco */}
+      <div className="register-form"> {/* Formulário centralizado */}
+        <h2>Registro</h2>
+        {!isConfirming ? (
+          <Form onSubmit={handleRegister}>
+            <Form.Group controlId="formBasicUsername" className="form-group">
+              <Form.Label className="form-label">Nome</Form.Label>
+              <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
+            </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
-          </Form.Group>
+            <Form.Group controlId="formBasicEmail" className="form-group">
+              <Form.Label className="form-label">Email</Form.Label>
+              <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
+            </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Senha</Form.Label>
-            <Form.Control type="password" placeholder="Sua senha" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
-          </Form.Group>
+            <Form.Group controlId="formBasicPassword" className="form-group">
+              <Form.Label className="form-label">Senha</Form.Label>
+              <Form.Control type="password" placeholder="Sua senha" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
+            </Form.Group>
 
-
-
-          <Button variant="primary" type="submit">
-            Registrar
-          </Button>
-        </Form>
-      ) : (
-        <Form onSubmit={handleConfirm}>
-          <Form.Group controlId="formBasicConfirmationCode">
-            <Form.Label>Código de Confirmação</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Código de confirmação"
-              value={confirmationCode}
-              onChange={(e) => setConfirmationCode(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Confirmar Conta
-          </Button>
-        </Form>
-      )}
-    </Container>
+            <Button variant="primary" type="submit" className="custom-button">
+              Registrar
+            </Button>
+          </Form>
+        ) : (
+          <Form onSubmit={handleConfirm}>
+            <Form.Group controlId="formBasicConfirmationCode" className="form-group">
+              <Form.Label className="form-label">Código de Confirmação</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Código de confirmação"
+                value={confirmationCode}
+                onChange={(e) => setConfirmationCode(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="custom-button">
+              Confirmar Conta
+            </Button>
+          </Form>
+        )}
+      </div>
+    </div>
   );
 };
 
