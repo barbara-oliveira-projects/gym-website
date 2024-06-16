@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
-import userPool from './aws';
+import userPool from '../../services/aws';
 import './RegisterPage.css'; // Importe o arquivo de estilos CSS
 
 const RegisterPage = () => {

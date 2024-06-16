@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Carousel } from 'react-bootstrap';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
+import LoginPage from '../src/components/LoginPage/LoginPage';
+import RegisterPage from '../src/components/RegisterPage/RegisterPage';
 
 function App() {
   return (

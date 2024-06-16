@@ -1,17 +1,17 @@
-.register-container {
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('./assets/images/mulher-1.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-image: url('../../assets/images/mulher-2.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.7); /* Ajuste o último valor para aumentar ou diminuir a opacidade */
+    background-color: rgba(0, 0, 0, 0.7); /* fundo fosco com transparência */
     position: relative; /* Garante que o posicionamento seja relativo ao elemento pai */
-  }  
+  }
   
-  .register-form {
+  .login-form {
     background-color: white; /* fundo do formulário branco */
     padding: 20px;
     border-radius: 8px;
