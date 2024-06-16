@@ -20,9 +20,8 @@
     max-width: 400px; /* largura máxima do formulário */
     margin: 20px auto; /* centraliza o formulário na página */
   }
-  
   .custom-button {
-    background-color: #555; /* cor cinza para o botão */
+    background-color: #555; /* cor cinza para o botão habilitado */
     border: none;
     color: white;
     padding: 10px 20px;
@@ -35,6 +34,12 @@
   
   .custom-button:hover {
     background-color: #777; /* cor cinza mais escura ao passar o mouse */
+  }
+  
+  .custom-button.disabled {
+    background-color: #888; /* cor cinza mais escuro para o botão desabilitado */
+    color: #ccc; /* cor do texto do botão desabilitado */
+    cursor: not-allowed; /* cursor de não permitido quando desabilitado */
   }
   
   /* Estilos para alinhar as labels à esquerda dos inputs e ajustar o margin-top */

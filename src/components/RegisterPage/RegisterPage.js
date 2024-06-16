@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import userPool from '../../services/aws';
-import './RegisterPage.css'; // Importe o arquivo de estilos CSS
+import './RegisterPage.css';
 
 const RegisterPage = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerUsername, setRegisterUsername] = useState('');
-  const [confirmationCode, setConfirmationCode] = useState('');
+  const [confirmationCode, setConfirmationCode] = useState(''); // eslint-disable-line no-unused-vars
   const [isConfirming, setIsConfirming] = useState(false);
+  const [showEmptyFieldsAlert, setShowEmptyFieldsAlert] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   const handleRegister = (e) => {
     e.preventDefault();
+
+    if (!registerEmail || !registerPassword || !registerUsername) {
+      setShowEmptyFieldsAlert(true);
+      return;
+    }
+
+    if (!isPasswordValid) {
+      return;
+    }
+
     const attributeList = [
       new CognitoUserAttribute({ Name: 'email', Value: registerEmail }),
       new CognitoUserAttribute({ Name: 'preferred_username', Value: registerUsername })
@@ -49,47 +61,58 @@ const RegisterPage = () => {
     });
   };
 
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  };
+
+  const handlePasswordChange = (e) => {
+    const password = e.target.value;
+    setIsPasswordValid(validatePassword(password));
+    setRegisterPassword(password);
+  };
+
   return (
-    <div className="register-container"> {/* Container principal com fundo fosco */}
-      <div className="register-form"> {/* Formulário centralizado */}
+    <div className="register-container">
+      <div className="register-form">
         <h2>Registro</h2>
-        {!isConfirming ? (
-          <Form onSubmit={handleRegister}>
-            <Form.Group controlId="formBasicUsername" className="form-group">
-              <Form.Label className="form-label">Nome</Form.Label>
-              <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
-            </Form.Group>
+        <Form onSubmit={isConfirming ? handleConfirm : handleRegister}>
+          <Form.Group controlId="formBasicUsername" className="form-group">
+            <Form.Label className="form-label">Nome</Form.Label>
+            <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
+          </Form.Group>
 
-            <Form.Group controlId="formBasicEmail" className="form-group">
-              <Form.Label className="form-label">Email</Form.Label>
-              <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
-            </Form.Group>
+          <Form.Group controlId="formBasicEmail" className="form-group">
+            <Form.Label className="form-label">Email</Form.Label>
+            <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
+          </Form.Group>
 
-            <Form.Group controlId="formBasicPassword" className="form-group">
-              <Form.Label className="form-label">Senha</Form.Label>
-              <Form.Control type="password" placeholder="Sua senha" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
-            </Form.Group>
+          <Form.Group controlId="formBasicPassword" className="form-group">
+            <Form.Label className="form-label">Senha</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Sua senha"
+              value={registerPassword}
+              onChange={handlePasswordChange}
+              className={!isPasswordValid ? 'is-invalid' : ''}
+            />
+            {!isPasswordValid && (
+              <Form.Text className="text-danger">
+                A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos.
+              </Form.Text>
+            )}
+          </Form.Group>
 
-            <Button variant="primary" type="submit" className="custom-button">
-              Registrar
-            </Button>
-          </Form>
-        ) : (
-          <Form onSubmit={handleConfirm}>
-            <Form.Group controlId="formBasicConfirmationCode" className="form-group">
-              <Form.Label className="form-label">Código de Confirmação</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Código de confirmação"
-                value={confirmationCode}
-                onChange={(e) => setConfirmationCode(e.target.value)}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit" className="custom-button">
-              Confirmar Conta
-            </Button>
-          </Form>
-        )}
+          {showEmptyFieldsAlert && (
+            <Alert variant="danger" className="custom-alert">
+              Preencha todos os campos antes de prosseguir.
+            </Alert>
+          )}
+
+          <Button variant="primary" type="submit" className={`custom-button ${!isPasswordValid ? 'disabled' : ''}`} disabled={!isPasswordValid}>
+            {isConfirming ? 'Confirmar Conta' : 'Registrar'}
+          </Button>
+        </Form>
       </div>
     </div>
   );
