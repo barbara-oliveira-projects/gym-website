@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import userPool from '../../services/aws';
+import { AuthContext } from '../../contexts/AuthContext';
 import './ProfilePage.css';
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState({});
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchUserData = () => {
@@ -29,13 +31,14 @@ const ProfilePage = () => {
             });
 
             setUserData(data);
+            login(); // Alterar o estado de autenticação
           });
         });
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [login]);
 
   return (
     <Container className="profile-page">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
+import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 import userPool from '../../services/aws';
 import './RegisterPage.css';
 
@@ -8,10 +9,11 @@ const RegisterPage = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerUsername, setRegisterUsername] = useState('');
-  const [confirmationCode, setConfirmationCode] = useState(''); // eslint-disable-line no-unused-vars
+  const [confirmationCode, setConfirmationCode] = useState('');
   const [isConfirming, setIsConfirming] = useState(false);
   const [showEmptyFieldsAlert, setShowEmptyFieldsAlert] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const navigate = useNavigate(); // Inicialize useNavigate
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ const RegisterPage = () => {
       }
       console.log('Confirmation successful:', result);
       alert('Conta confirmada com sucesso!');
-      setIsConfirming(false);
+      navigate('/profile'); // Redirecione para a página de perfil
     });
   };
 
@@ -77,39 +79,60 @@ const RegisterPage = () => {
       <div className="register-form">
         <h2>Registro</h2>
         <Form onSubmit={isConfirming ? handleConfirm : handleRegister}>
-          <Form.Group controlId="formBasicUsername" className="form-group">
-            <Form.Label className="form-label">Nome</Form.Label>
-            <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
-          </Form.Group>
+          {!isConfirming && (
+            <>
+              <Form.Group controlId="formBasicUsername" className="form-group">
+                <Form.Label className="form-label">Nome</Form.Label>
+                <Form.Control type="text" placeholder="Seu nome de usuário" value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicEmail" className="form-group">
-            <Form.Label className="form-label">Email</Form.Label>
-            <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
-          </Form.Group>
+              <Form.Group controlId="formBasicEmail" className="form-group">
+                <Form.Label className="form-label">Email</Form.Label>
+                <Form.Control type="email" placeholder="Seu email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicPassword" className="form-group">
-            <Form.Label className="form-label">Senha</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Sua senha"
-              value={registerPassword}
-              onChange={handlePasswordChange}
-              className={!isPasswordValid ? 'is-invalid' : ''}
-            />
-            {!isPasswordValid && (
-              <Form.Text className="text-danger">
-                A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos.
-              </Form.Text>
-            )}
-          </Form.Group>
+              <Form.Group controlId="formBasicPassword" className="form-group">
+                <Form.Label className="form-label">Senha</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Sua senha"
+                  value={registerPassword}
+                  onChange={handlePasswordChange}
+                  className={!isPasswordValid ? 'is-invalid' : ''}
+                />
+                {!isPasswordValid && (
+                  <Form.Text className="text-danger">
+                    A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos.
+                  </Form.Text>
+                )}
+              </Form.Group>
 
-          {showEmptyFieldsAlert && (
-            <Alert variant="danger" className="custom-alert">
-              Preencha todos os campos antes de prosseguir.
-            </Alert>
+              {showEmptyFieldsAlert && (
+                <Alert variant="danger" className="custom-alert">
+                  Preencha todos os campos antes de prosseguir.
+                </Alert>
+              )}
+            </>
           )}
 
-          <Button variant="primary" type="submit" className={`custom-button ${!isPasswordValid ? 'disabled' : ''}`} disabled={!isPasswordValid}>
+          {isConfirming && (
+            <Form.Group controlId="formBasicConfirmationCode" className="form-group">
+              <Form.Label className="form-label">Código de Confirmação</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Insira o código de confirmação"
+                value={confirmationCode}
+                onChange={(e) => setConfirmationCode(e.target.value)}
+              />
+            </Form.Group>
+          )}
+
+          <Button
+            variant="primary"
+            type="submit"
+            className={`custom-button ${!isPasswordValid && !isConfirming ? 'disabled' : ''}`}
+            disabled={!isPasswordValid && !isConfirming}
+          >
             {isConfirming ? 'Confirmar Conta' : 'Registrar'}
           </Button>
         </Form>
