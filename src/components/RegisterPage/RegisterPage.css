@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../../assets/images/mulher-1.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-image: url('../../../public/images/mulher-1.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

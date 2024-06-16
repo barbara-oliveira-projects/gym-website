@@ -23,7 +23,7 @@ const AboutPage = () => (
         <p>Estamos constantemente evoluindo para oferecer as melhores práticas e tecnologias em fitness, garantindo que nossos alunos tenham acesso ao que há de mais atual no mundo do treinamento físico.</p>
       </Col>
       <Col md={6}>
-        <Image src="/images/about-facilities.jpg" alt="Instalações da Academia" fluid className="about-image" />
+        <Image src="/images/inside-gym.jpg" alt="Instalações da Academia" fluid className="about-image" />
       </Col>
     </Row>
   </Container>
