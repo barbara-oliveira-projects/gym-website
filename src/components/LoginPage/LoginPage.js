@@ -3,10 +3,12 @@ import { Form, Button, Container } from 'react-bootstrap';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import userPool from '../../services/aws';
 import './LoginPage.css'; // Importe o arquivo de estilos CSS
+import { useNavigate } from 'react-router-dom'; 
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const navigate = useNavigate(); // Inicialize o hook useNavigate
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ const LoginPage = () => {
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         console.log('Authentication successful:', result);
-        alert('Login realizado com sucesso!');
+        navigate('/profile'); // Redirecione para a página de perfil
       },
       onFailure: (error) => {
         console.error('Authentication failed:', error);

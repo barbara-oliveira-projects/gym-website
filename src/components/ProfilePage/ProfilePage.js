@@ -1,20 +1,63 @@
-// ProfilePage.js
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
+import userPool from '../../services/aws';
+import './ProfilePage.css';
 
-import React from 'react';
-import { Container, Card } from 'react-bootstrap'; // Importe os componentes do Bootstrap ou de sua escolha
+const ProfilePage = () => {
+  const [userData, setUserData] = useState({});
 
-const ProfilePage = ({ user }) => {
+  useEffect(() => {
+    const fetchUserData = () => {
+      const user = userPool.getCurrentUser();
+
+      if (user) {
+        user.getSession((err, session) => {
+          if (err) {
+            console.error('Error getting session:', err);
+            return;
+          }
+
+          user.getUserAttributes((err, attributes) => {
+            if (err) {
+              console.error('Error getting user attributes:', err);
+              return;
+            }
+
+            const data = {};
+            attributes.forEach(attribute => {
+              data[attribute.Name] = attribute.Value;
+            });
+
+            setUserData(data);
+          });
+        });
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
   return (
-    <Container>
-      <h2>Perfil do Usuário</h2>
-      <Card style={{ width: '18rem', margin: 'auto' }}>
-        <Card.Body>
-          <Card.Title>{user.name}</Card.Title>
-          <Card.Text>
-            <strong>Email:</strong> {user.email}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+    <Container className="profile-page">
+      <Row className="justify-content-md-center">
+        <Col md="6">
+          <Card className="profile-card">
+            <Card.Body>
+              <Card.Title>Perfil do Usuário</Card.Title>
+              <Card.Text>
+                <strong>Nome:</strong> {userData.preferred_username || 'N/A'}
+              </Card.Text>
+              <Card.Text>
+                <strong>Email:</strong> {userData.email || 'N/A'}
+              </Card.Text>
+              <Card.Text>
+                <strong>Data de Entrada:</strong> {userData.joined || 'N/A'}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 };

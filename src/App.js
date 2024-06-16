@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Carousel } from 'react-bootstrap';
 import LoginPage from '../src/components/LoginPage/LoginPage';
 import RegisterPage from '../src/components/RegisterPage/RegisterPage';
+import ProfilePage from '../src/components/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </Container>
     </Router>
