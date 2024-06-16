@@ -36,3 +36,69 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+.custom-navbar {
+  background-color: #232323;
+  padding: 1rem 2rem;
+}
+
+.custom-navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.custom-nav .nav-link {
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.custom-nav .nav-link:hover {
+  color: #ddd;
+}
+
+.custom-search-form {
+  display: flex;
+  align-items: center;
+}
+
+.custom-search-form .form-control {
+  width: 200px;
+  margin-right: 0.5rem;
+}
+
+.custom-search-form .btn {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+
+.custom-search-form .btn:hover {
+  background-color: #4cae4c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+
+.carousel-item img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 1.25rem;
+}
+
+/* App.css */
+
+.carousel-img {
+  height: 400px; /* Altura desejada para as imagens */
+  object-fit: cover; /* Garante que a imagem cubra todo o espaço do elemento */
+}

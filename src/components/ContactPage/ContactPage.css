@@ -1,0 +1,39 @@
+/* src/components/ContactPage/ContactPage.css */
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .contact-options {
+    display: flex;
+    flex-direction: column; /* Altera para exibir as opções uma abaixo da outra */
+    align-items: center; /* Centraliza as colunas horizontalmente */
+  }
+  
+  .contact-item {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    width: 100%; /* Garante que cada item ocupe toda a largura do container */
+    max-width: 400px; /* Define uma largura máxima para cada item */
+  }
+  
+  .contact-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-item p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
