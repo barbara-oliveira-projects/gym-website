@@ -59,41 +59,61 @@ function App() {
 }
 
 const Home = () => (
-  <Carousel>
-    <Carousel.Item>
-      <img
-        className="d-block w-100 carousel-img"
-        src="/images/mulher-4.jpg"
-        alt="Primeiro slide"
-      />
-      <Carousel.Caption>
-        <h3>Primeiro slide do carrossel</h3>
-        <p>Alguma descrição aqui.</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100 carousel-img"
-        src="/images/mulher-5.jpg"
-        alt="Segundo slide"
-      />
-      <Carousel.Caption>
-        <h3>Segundo slide do carrossel</h3>
-        <p>Outra descrição aqui.</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100 carousel-img"
-        src="/images/mulher-6.jpg"
-        alt="Segundo slide"
-      />
-      <Carousel.Caption>
-        <h3>Segundo slide do carrossel</h3>
-        <p>Outra descrição aqui.</p>
-      </Carousel.Caption>
-    </Carousel.Item>    
-  </Carousel>
+  <div>
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-img"
+          src="/images/mulher-4.jpg"
+          alt="Primeiro slide"
+        />
+        <Carousel.Caption>
+          <h3>Primeiro slide do carrossel</h3>
+          <p>Alguma descrição aqui.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-img"
+          src="/images/mulher-5.jpg"
+          alt="Segundo slide"
+        />
+        <Carousel.Caption>
+          <h3>Segundo slide do carrossel</h3>
+          <p>Outra descrição aqui.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-img"
+          src="/images/mulher-6.jpg"
+          alt="Terceiro slide"
+        />
+        <Carousel.Caption>
+          <h3>Terceiro slide do carrossel</h3>
+          <p>Mais uma descrição aqui.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+
+    <Container className="mt-4">
+      <div className="section">
+        <h2>Matrícula na Academia</h2>
+        <p>Faça sua matrícula na Academia Fitness e comece a transformar sua vida hoje mesmo!</p>
+        <Button as={Link} to="/register" className="custom-button primary">Registrar-se</Button>
+      </div>
+
+      <div className="section">
+        <h2>Vantagens de Praticar Exercícios</h2>
+        <ul>
+          <li>Melhora da saúde cardiovascular</li>
+          <li>Aumento da resistência física</li>
+          <li>Redução do estresse e ansiedade</li>
+          <li>Melhora da autoestima e humor</li>
+        </ul>
+      </div>
+    </Container>
+  </div>
 );
 
 export default App;

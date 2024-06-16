@@ -102,3 +102,43 @@
   height: 400px; /* Altura desejada para as imagens */
   object-fit: cover; /* Garante que a imagem cubra todo o espaço do elemento */
 }
+
+.section {
+  margin-bottom: 30px;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333; /* Cor do título */
+}
+
+.section p {
+  font-size: 1.2rem;
+  line-height: 1.6; /* Espaçamento entre linhas */
+  color: #666; /* Cor do texto */
+}
+
+.section ul {
+  font-size: 1.2rem;
+  color: #666; /* Cor do texto */
+}
+
+.custom-button.primary {
+  background-color: #555; /* Cor cinza para o botão */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Torna o botão um bloco para centralizar */
+  margin: 20px auto 0; /* Centraliza o botão e adiciona espaço acima */
+}
+
+.custom-button.primary:hover {
+  background-color: #777; /* Cor cinza mais escura ao passar o mouse */
+}
+
