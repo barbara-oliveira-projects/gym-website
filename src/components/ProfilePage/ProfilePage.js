@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
 import userPool from '../../services/aws';
 import './ProfilePage.css';
 

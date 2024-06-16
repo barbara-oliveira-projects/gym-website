@@ -1,0 +1,21 @@
+/* src/components/AboutPage/AboutPage.css */
+
+.about-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-content {
+    margin-bottom: 30px;
+  }
+  
+  .about-image {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .about-image:hover {
+    transform: scale(1.05);
+  }
+  

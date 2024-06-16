@@ -5,6 +5,7 @@ import LoginPage from '../src/components/LoginPage/LoginPage';
 import RegisterPage from '../src/components/RegisterPage/RegisterPage';
 import ProfilePage from '../src/components/ProfilePage/ProfilePage';
 import ContactPage from './components/ContactPage/ContactPage'; // Importar a página de contato
+import AboutPage from './components/AboutPage/AboutPage'; // Importar a página "Sobre"
 import './App.css';  // Importar o CSS
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/contact" element={<ContactPage />} /> {/* Rota para a página de contato */}
+          <Route path="/about" element={<AboutPage />} /> {/* Rota para a página "Sobre" */}
         </Routes>
       </Container>
     </Router>
