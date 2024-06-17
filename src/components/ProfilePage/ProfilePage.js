@@ -48,7 +48,7 @@ const ProfilePage = () => {
             <Card.Body>
               <Card.Title>Perfil do Usuário</Card.Title>
               <Card.Text>
-                <strong>Nome:</strong> {userData.preferred_username || 'N/A'}
+                <strong>Nome:</strong> {userData.name || 'N/A'}
               </Card.Text>
               <Card.Text>
                 <strong>Email:</strong> {userData.email || 'N/A'}
