@@ -1,0 +1,70 @@
+.custom-navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #000 !important; /* Fundo preto */
+    height: 70px; /* Altura do cabeçalho */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+}
+
+.custom-navbar .container {
+    height: 100%; /* Garante que o contêiner do Bootstrap ocupe toda a altura */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+}
+
+.custom-navbar-brand {
+    height: 100%; /* Ajusta a altura do elemento de marcação */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o ícone */
+}
+
+.custom-navbar-brand .logo-img {
+    height: 100%; /* O ícone terá a altura máxima possível dentro do cabeçalho */
+    max-width: 100%; /* Garante que o ícone não ultrapasse a largura do cabeçalho */
+    width: auto; /* A largura será ajustada automaticamente proporcionalmente à altura */
+    vertical-align: middle; /* Alinha verticalmente o ícone */
+}
+
+.custom-nav .nav-link {
+    color: #fff !important;
+    font-weight: bold;
+    margin: 0 15px;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.custom-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #fff;  /* Cor branca */
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.custom-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: #fff;  /* Cor branca */
+}
+
+.custom-search-form .form-control {
+    border-radius: 0;
+}
+
+.custom-navbar .btn-outline-success {
+    border-color: #ff6600;
+    color: #ff6600;
+}
+
+.custom-navbar .btn-outline-success:hover {
+    background-color: #ff6600;
+    color: #fff;
+}

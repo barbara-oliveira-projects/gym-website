@@ -1,12 +1,13 @@
-import React, { useRef, useContext } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
-import { Navbar as BootstrapNavbar, Nav, Container, Carousel, Form, FormControl, Button } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Container, Carousel, Button } from 'react-bootstrap';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import ContactPage from './components/ContactPage/ContactPage';
 import AboutPage from './components/AboutPage/AboutPage';
-import { AuthProvider, AuthContext } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
+import Header from './components/Header/Header';
 import './App.css';
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <Navigation handleNavLinkClick={handleNavLinkClick} navbarRef={navbarRef} />
+        <Header handleNavLinkClick={handleNavLinkClick} navbarRef={navbarRef} />
         <Container className="mt-4">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -91,51 +92,31 @@ const Home = () => (
           <li>Melhora da autoestima e humor</li>
         </ul>
       </div>
+      
+      <div className="section">
+        <h2 className="about-title">Sobre Nós</h2>
+        <div className="about-content">
+          <div>
+            <img src="/images/about-team.jpg" alt="Equipe da Academia" className="about-image" />
+          </div>
+          <div>
+            <p>A Academia Fitness foi fundada em 2005 com o objetivo de proporcionar um ambiente acolhedor e motivador para nossos alunos. Ao longo dos anos, nos especializamos em diversos tipos de treinamento, incluindo musculação, pilates, e aeróbica.</p>
+            <p>Nossos professores são altamente qualificados e apaixonados por fitness. Cada um deles traz consigo uma vasta experiência em áreas como nutrição esportiva, fisioterapia e condicionamento físico.</p>
+          </div>
+        </div>
+
+        <div className="about-content">
+          <div>
+            <p>Nosso compromisso é oferecer programas de treinamento personalizados para atender às necessidades individuais de cada aluno. Além disso, promovemos um ambiente inclusivo e amigável, onde todos se sintam bem-vindos e motivados a alcançar seus objetivos de saúde e bem-estar.</p>
+            <p>Estamos constantemente evoluindo para oferecer as melhores práticas e tecnologias em fitness, garantindo que nossos alunos tenham acesso ao que há de mais atual no mundo do treinamento físico.</p>
+          </div>
+          <div>
+            <img src="/images/inside-gym.jpg" alt="Instalações da Academia" className="about-image" />
+          </div>
+        </div>
+      </div>
     </Container>
   </div>
 );
-
-const Navigation = ({ handleNavLinkClick, navbarRef }) => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
-
-  return (
-    <BootstrapNavbar bg="dark" variant="dark" expand="lg" className="custom-navbar">
-      <Container>
-        <Link to="/" className="navbar-brand custom-navbar-brand">Academia</Link>
-        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" ref={navbarRef} />
-        <BootstrapNavbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto custom-nav">
-            <Nav.Link as={Link} to="/" onClick={handleNavLinkClick}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" onClick={handleNavLinkClick}>Sobre</Nav.Link>
-            <Nav.Link as={Link} to="/contact" onClick={handleNavLinkClick}>Contato</Nav.Link>
-            {!isAuthenticated ? (
-              <>
-                <Nav.Link as={Link} to="/register" onClick={handleNavLinkClick}>Registro</Nav.Link>
-                <Nav.Link as={Link} to="/login" onClick={handleNavLinkClick}>Login</Nav.Link>
-              </>
-            ) : (
-              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-            )}
-          </Nav>
-          <Form className="d-flex custom-search-form">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </BootstrapNavbar.Collapse>
-      </Container>
-    </BootstrapNavbar>
-  );
-};
 
 export default App;
