@@ -94,3 +94,21 @@ body {
   display: flex;
   justify-content: center;
 }
+
+/* App.css ou seu arquivo de estilos principal */
+
+/* App.css ou seu arquivo de estilos principal */
+
+.whatsapp-icon {
+  position: fixed;
+  right: 20px; /* Posiciona o ícone 20px do lado direito da tela */
+  bottom: 20px; /* Posiciona o ícone 20px do fundo da tela */
+  z-index: 1000; /* Garante que o ícone fique acima de outros elementos */
+}
+
+.whatsapp-icon img {
+  width: 60px; /* Ajuste o tamanho do ícone conforme necessário */
+  height: auto; /* Mantém a proporção original do ícone */
+  cursor: pointer; /* Define o cursor como ponteiro ao passar por cima */
+}
+

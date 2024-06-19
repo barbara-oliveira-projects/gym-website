@@ -33,6 +33,14 @@ const App = () => {
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </Container>
+
+        {/* Ícone do WhatsApp */}
+        <div className="whatsapp-icon">
+          <a href="https://api.whatsapp.com/send?phone=5519996391535" target="_blank" rel="noopener noreferrer">
+            <img src="/images/whatsapp.png" alt="WhatsApp" />
+          </a>
+        </div>
+
       </Router>
     </AuthProvider>
   );
