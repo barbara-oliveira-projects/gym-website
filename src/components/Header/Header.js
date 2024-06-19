@@ -38,14 +38,20 @@ const Header = () => {
                 <BootstrapNavbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto custom-nav navbar-nav">
                         <Nav.Link as={Link} to="/" onClick={handleLinkClick}>Home</Nav.Link>
+                        <span className="pipe-divider">|</span>
                         <Nav.Link as={Link} to="/contact" onClick={handleLinkClick}>Fale Conosco</Nav.Link>
                         {!isAuthenticated ? (
                             <>
+                                <span className="pipe-divider">|</span>
                                 <Nav.Link as={Link} to="/register" onClick={handleLinkClick}>Registro</Nav.Link>
+                                <span className="pipe-divider">|</span>
                                 <Nav.Link as={Link} to="/login" onClick={handleLinkClick}>Login</Nav.Link>
                             </>
                         ) : (
-                            <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                            <>
+                                <span className="pipe-divider">|</span>
+                                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                            </>
                         )}
                     </Nav>
                     <Button className="close-btn d-block d-lg-none" onClick={() => setExpanded(false)}>

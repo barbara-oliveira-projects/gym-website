@@ -33,26 +33,19 @@
     font-weight: bold;
     margin: 0 15px;
     position: relative;
-    display: inline-block;
+    display: inline-flex; /* Alterei para inline-flex para centralizar verticalmente */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
     text-decoration: none;
 }
 
 .custom-nav .nav-link::after {
-    content: '';
-    position: absolute;
+    content: ''; /* Remove a pipe adicionada por pseudo-elemento */
     width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #fff;  /* Cor branca */
-    transition: width 0.4s ease, background-color 0.4s ease;
 }
 
-.custom-nav .nav-link:hover::after {
-    width: 100%;
-    left: 0;
-    background: #fff;  /* Cor branca */
+.pipe-divider {
+    margin: 10px; /* Espaçamento entre a pipe e os itens do menu */
+    color: #fff; /* Cor da pipe */
 }
 
 .custom-search-form .form-control {
@@ -69,12 +62,12 @@
     color: #fff;
 }
 
-/* Centralizar os itens do menu em dispositivos móveis */
+/* Ajustes para o menu mobile */
 @media (max-width: 991px) {
     .navbar-collapse {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centraliza os itens do menu */
+        align-items: center; /* Centraliza os itens do menu verticalmente */
         text-align: center; /* Centraliza o texto dos links */
         background-color: #000; /* Garante o fundo preto no menu colapsado */
     }
@@ -85,11 +78,7 @@
 
     .custom-nav .nav-link {
         margin: 10px 0; /* Adiciona espaço entre os links */
-        text-decoration: underline; /* Adiciona sublinhado */
-    }
-
-    .navbar-toggler {
-        position: relative;
+        display: block; /* Altera para block para que cada link ocupe a largura total disponível */
     }
 
     .close-btn {
@@ -104,5 +93,8 @@
     .close-btn:focus {
         outline: none;
     }
-}
 
+    .pipe-divider {
+        display: none; /* Esconde a pipe em dispositivos móveis */
+    }
+}

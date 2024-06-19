@@ -2,130 +2,70 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #000; /* Define o fundo preto para toda a aplicação */
+  color: #fff; /* Define a cor do texto como branco para melhor contraste */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.custom-nav .nav-link {
-  color: #fff;
-  margin-right: 1rem;
-  font-size: 1rem;
-}
-
-.custom-nav .nav-link:hover {
-  color: #ddd;
-}
-
-.custom-search-form {
-  display: flex;
-  align-items: center;
-}
-
-.custom-search-form .form-control {
-  width: 200px;
-  margin-right: 0.5rem;
-}
-
-.custom-search-form .btn {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
-  color: #fff;
-}
-
-.custom-search-form .btn:hover {
-  background-color: #4cae4c;
-  border-color: #4cae4c;
-  color: #fff;
-}
-
-.carousel-item img {
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.carousel-caption h3 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.carousel-caption p {
-  font-size: 1.25rem;
-}
-
-/* App.css */
 
 .carousel-img {
-  height: 400px; /* Altura desejada para as imagens */
-  object-fit: cover; /* Garante que a imagem cubra todo o espaço do elemento */
+  height: 400px;
+  object-fit: cover;
 }
 
 .section {
   margin-bottom: 30px;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left;
 }
 
 .section h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #333; /* Cor do título */
+  color: #fff; /* Define a cor do texto como branco */
 }
 
 .section p {
   font-size: 1.2rem;
-  line-height: 1.6; /* Espaçamento entre linhas */
-  color: #666; /* Cor do texto */
+  line-height: 1.6;
+  color: #fff; /* Define a cor do texto como branco */
 }
 
 .section ul {
   font-size: 1.2rem;
-  color: #666; /* Cor do texto */
+  color: #fff; /* Define a cor do texto como branco */
 }
 
 .custom-button.primary {
-  background-color: #555; /* Cor cinza para o botão */
-  border: none;
+  background-color: #FF66C4; /* Cor de fundo roxa choque */
+  border: 2px solid #fff; /* Borda branca */
   color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 10px 30px; /* Ajuste o padding para se parecer com o botão do site */
+  border-radius: 25px; /* Bordas arredondadas */
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block; /* Torna o botão um bloco para centralizar */
-  margin: 20px auto 0; /* Centraliza o botão e adiciona espaço acima */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Adiciona transição para hover */
+  display: inline-block;
+  font-size: 1.2rem; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  text-transform: uppercase; /* Texto em maiúsculas */
 }
 
 .custom-button.primary:hover {
-  background-color: #777; /* Cor cinza mais escura ao passar o mouse */
+  background-color: #ec4aae; /* Cor de fundo ao passar o mouse (um pouco mais escura) */
+  transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
 }
 
-.section {
-  margin-top: 40px;
+.styled-divider {
+  border: 0;
+  height: 3px; /* Aumente a altura para tornar a linha mais visível */
+  width: 60%; /* Ajuste a largura conforme necessário */
+  margin: 30px auto; /* Centraliza a linha */
+  background: #fff; /* Torna a cor da linha mais escura */
 }
 
 .about-title {
   text-align: center;
   margin-bottom: 20px;
+  color: #fff; /* Define a cor do texto como branco */
 }
 
 .about-content {
@@ -138,4 +78,19 @@
 .about-image {
   width: 100%;
   height: auto;
+}
+
+.centered-title {
+  text-align: center;
+  color: #fff; /* Define a cor do texto como branco */
+}
+
+.centered-text {
+  text-align: center;
+  color: #fff; /* Define a cor do texto como branco */
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
 }
