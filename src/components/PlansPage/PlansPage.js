@@ -11,7 +11,7 @@ const PlansPage = () => {
                 <div className="plans-description">
                     <p>
                         Conheça nossos planos e valores, visite-nos para conhecer nossa estrutura e faça a sua matrícula na nossa recepção.
-                        Será um prazer receber você. Bem vindo à família Itaigara Fitness!
+                        Será um prazer receber você. Bem vindo à família Luke & Dart Fitness!
                     </p>
                 </div>
                 <div className="plans-row">
