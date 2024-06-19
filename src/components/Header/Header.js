@@ -42,8 +42,9 @@ const Header = () => {
                         <Nav.Link as={Link} to="/contact" onClick={handleLinkClick}>Fale Conosco</Nav.Link>
                         {!isAuthenticated ? (
                             <>
-                                <span className="pipe-divider">|</span>
-                                <Nav.Link as={Link} to="/register" onClick={handleLinkClick}>Registro</Nav.Link>
+                                {/* Removendo a opção de registro */}
+                                {/* <span className="pipe-divider">|</span> */}
+                                {/* <Nav.Link as={Link} to="/register" onClick={handleLinkClick}>Registro</Nav.Link> */}
                                 <span className="pipe-divider">|</span>
                                 <Nav.Link as={Link} to="/login" onClick={handleLinkClick}>Login</Nav.Link>
                             </>
@@ -53,6 +54,9 @@ const Header = () => {
                                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                             </>
                         )}
+                        {/* Novo link para "Plans" */}
+                        <span className="pipe-divider">|</span>
+                        <Nav.Link as={Link} to="/plans" onClick={handleLinkClick}>Planos</Nav.Link>
                     </Nav>
                     <Button className="close-btn d-block d-lg-none" onClick={() => setExpanded(false)}>
                         &times;

@@ -1,0 +1,109 @@
+.plans-background {
+    background-image: url('../../../public/images/mulher-1.jpg'); /* Caminho para sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para melhor legibilidade */
+    padding: 50px 0; /* Espaçamento interno */
+    position: relative; /* Posição relativa para ajustar a pseudo-classe ::before */
+}
+
+.plans-page {
+    color: #fff; /* Cor do texto branco para melhor contraste */
+    text-align: center;
+    position: relative; /* Posição relativa para permitir sobreposição */
+    z-index: 1; /* Ajuste o índice z para ficar sobre a imagem de fundo */
+}
+
+.small-divider {
+    width: 30%; /* Ajuste a largura conforme necessário */
+    height: 2px; /* Altura da linha de divisão */
+    margin: 20px auto; /* Centraliza a linha de divisão */
+    background-color: #fff; /* Cor da linha de divisão */
+}
+
+.plans-description {
+    font-size: 1.5rem; /* Tamanho da fonte do texto descritivo */
+    margin-bottom: 30px; /* Espaçamento inferior */
+}
+
+.plans-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaçamento entre as caixas de plano */
+    flex-wrap: wrap; /* Permite que as caixas quebrem linha em telas menores */
+}
+
+.plan-box {
+    background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo preto semi-transparente */
+    color: #fff; /* Cor do texto branco */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Borda arredondada */
+    text-align: center; /* Alinha o texto centralmente */
+    width: 300px; /* Largura da caixa de plano */
+    max-width: 100%; /* Garante que a caixa não ultrapasse a largura máxima */
+    position: relative; /* Posição relativa para ajustar a pseudo-classe ::before */
+    overflow: hidden; /* Esconde o conteúdo que possa sair da caixa */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra suave para efeito de elevação */
+    display: flex; /* Adicionado para o posicionamento do botão */
+    flex-direction: column; /* Adicionado para o posicionamento do botão */
+    justify-content: space-between; /* Adicionado para o posicionamento do botão */
+}
+
+.plan-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../public/images/mulher-1.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Desfoque na imagem de fundo */
+    z-index: -1; /* Coloca atrás do conteúdo */
+}
+
+.plan-box h3 {
+    font-size: 1.8rem; /* Tamanho da fonte do título do plano */
+    margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+.plan-box p {
+    font-size: 1.2rem; /* Tamanho da fonte do valor do plano */
+    margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+.plan-box ul {
+    list-style-type: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding padrão */
+    font-size: 1rem; /* Tamanho da fonte dos itens da lista ajustado para menor */
+}
+
+.plan-box ul li {
+    margin-bottom: 8px; /* Espaçamento inferior entre os itens da lista */
+}
+
+.styled-divider-small {
+    border: 0;
+    height: 1px; /* Altura da linha */
+    width: 50%; /* Largura da linha */
+    margin: 10px auto; /* Centraliza a linha */
+    background: #fff; /* Cor da linha */
+}
+
+.plan-button {
+    background-color: #FF66C4; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    margin-top: 20px; /* Espaçamento superior */
+    align-self: center; /* Centraliza o botão horizontalmente */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.plan-button:hover {
+    background-color: #ec4aae; /* Cor de fundo ao passar o mouse */
+}

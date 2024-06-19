@@ -6,6 +6,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import ContactPage from './components/ContactPage/ContactPage';
 import AboutPage from './components/AboutPage/AboutPage';
+import PlansPage from './components/PlansPage/PlansPage'; // Import the PlansPage component
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header/Header';
 import './App.css';
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/plans" element={<PlansPage />} /> {/* Route for Plans */}
           </Routes>
         </Container>
 
