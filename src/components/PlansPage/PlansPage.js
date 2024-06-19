@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import './PlansPage.css';
+import '../../App.css'; // Importa o CSS principal para reutilizar os estilos
 
 const PlansPage = () => {
     return (
@@ -25,7 +26,7 @@ const PlansPage = () => {
                                 <li>Adesão - R$ 50,00.</li>
                             </ul>
                         </div>
-                        <button className="plan-button">Quero Este!</button>
+                        <button className="custom-button primary">Quero Este!</button>
                     </div>
 
                     <div className="plan-box">
@@ -37,11 +38,10 @@ const PlansPage = () => {
                                 <li>Horário livre;</li>
                                 <li>Aulas coletivas inclusas;</li>
                                 <li>Acompanhante gratuito 2X por mês;</li>
-                                <li>15 dias de trancamento;</li>
                                 <li>Adesão - R$ 50,00.</li>
                             </ul>
                         </div>
-                        <button className="plan-button">Quero Este!</button>
+                        <button className="custom-button primary">Quero Este!</button>
                     </div>
                 </div>
             </Container>
