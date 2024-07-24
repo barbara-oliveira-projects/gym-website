@@ -1,50 +1,66 @@
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: url('../../../public/images/mulher-2.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.7); /* fundo fosco com transparência */
-    position: relative; /* Garante que o posicionamento seja relativo ao elemento pai */
-  }
-  
-  .login-form {
-    background-color: white; /* fundo do formulário branco */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* sombra suave */
-    width: 80%; /* largura do formulário */
-    max-width: 400px; /* largura máxima do formulário */
-    margin: 20px auto; /* centraliza o formulário na página */
-  }
-  
-  .custom-button {
-    background-color: #555; /* cor cinza para o botão */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block; /* torna o botão um bloco para centralizar */
-    margin: 20px auto 0; /* centraliza o botão e adiciona espaço acima */
-  }
-  
-  .custom-button:hover {
-    background-color: #777; /* cor cinza mais escura ao passar o mouse */
-  }
-  
-  /* Estilos para alinhar as labels à esquerda dos inputs e ajustar o margin-top */
-  .form-group {
-    text-align: left; /* alinha texto à esquerda */
-    margin-bottom: 15px; /* espaço inferior entre os inputs */
-  }
-  
-  .form-group > .form-label {
-    margin-top: 0.5rem; /* margem superior para as labels */
-    margin-bottom: 0; /* remove a margem inferior das labels */
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../../../public/images/mulher-2.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo fosco com transparência */
+  position: relative; /* Garante que o posicionamento seja relativo ao elemento pai */
+}
+
+.login-form {
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente */
+  color: #fff; /* Texto branco */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  width: 80%; /* Largura do formulário */
+  max-width: 400px; /* Largura máxima do formulário */
+  margin: 20px auto; /* Centraliza o formulário na página */
+  position: relative;
+  overflow: hidden;
+}
+
+.login-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../public/images/mulher-2.jpg'); /* Substitua pelo caminho correto da imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px); /* Desfoque na imagem de fundo */
+  z-index: -1; /* Coloca atrás do conteúdo */
+}
+
+.custom-button {
+  background-color: #555; /* Cor cinza para o botão */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Torna o botão um bloco para centralizar */
+  margin: 20px auto 0; /* Centraliza o botão e adiciona espaço acima */
+}
+
+.custom-button:hover {
+  background-color: #777; /* Cor cinza mais escura ao passar o mouse */
+}
+
+/* Estilos para alinhar as labels à esquerda dos inputs e ajustar o margin-top */
+.form-group {
+  text-align: left; /* Alinha texto à esquerda */
+  margin-bottom: 15px; /* Espaço inferior entre os inputs */
+}
+
+.form-group > .form-label {
+  margin-top: 0.5rem; /* Margem superior para as labels */
+  margin-bottom: 0; /* Remove a margem inferior das labels */
+}
